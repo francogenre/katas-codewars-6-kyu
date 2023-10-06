@@ -12,3 +12,39 @@ dashatize(274) -> '2-7-4'
 dashatize(6815) -> '68-1-5'
 */
 
+function dashatize(num) {
+
+    if (num === 0 || num === '0' || isNaN(num)) {
+        return num.toString();
+    }
+    else {
+        num = Math.abs(num);
+
+        const numLength = num.length;
+        const array = num.toString().split('')
+        const arrayNum = array.map(element =>
+            Number(element)
+        );
+        const result = [];
+        for (let i = 0; i < arrayNum.length; i += 1) {
+            if (arrayNum[i] % 2 !== 0) {
+                result.push(`-${arrayNum[i]}-`);
+
+            }
+            else { result.push(arrayNum[i]) };
+
+
+        };
+        const string = result.join('').replace('--', '-').replace('--', '-').replace('--', '-').replace('--', '-').split('');
+        if (string[0] === '-') {
+            string.splice(0, 1);
+        }
+        if (string[string.length - 1] === '-') {
+            string.splice(-1, 1);
+
+        }
+        return string.join('');
+    }
+
+}
+

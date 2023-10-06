@@ -32,3 +32,21 @@ const dataReverse = function(data) {
     .map(v => v * 1);
 };
 
+/*
+function dataReverse(data) {
+  if( data.length%8 === 0 ) {
+    
+    let i = data.length
+    const arr = [];
+    
+    while(i >= 0) {
+            
+      arr.push(...data.slice((i-8), i))      
+      
+      i -= 8;
+    }
+
+    return arr;
+  }
+}
+*/

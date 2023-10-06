@@ -7,3 +7,11 @@ A simple form of RLE would encode the string "AAABBBCCCD" as "3A3B3C1D" meaning,
 Your task is to write a RLE encoder and decoder using this technique. The texts to encode will always consist of only uppercase characters, no numbers.
 */
 
+function encode(input) {
+	return input.replace(/(.)\1*/g, (match, p1) => match.length + p1);
+}
+
+function decode(input) {
+  return input.replace(/(\d+)(.)+?/g, (_, p1, p2) => p2.repeat(p1));
+}
+

@@ -33,7 +33,6 @@ function dashatize(num) {
             }
             else { result.push(arrayNum[i]) };
 
-
         };
         const string = result.join('').replace('--', '-').replace('--', '-').replace('--', '-').replace('--', '-').split('');
         if (string[0] === '-') {
@@ -48,3 +47,11 @@ function dashatize(num) {
 
 }
 
+/*
+function dashatize(num) {
+  return String(num)
+    .replace(/([13579])/g, "-$1-")
+    .replace(/--+/g, "-")
+    .replace(/(^-|-$)/g, "")
+}
+*/

@@ -15,3 +15,30 @@ function decode(input) {
   return input.replace(/(\d+)(.)+?/g, (_, p1, p2) => p2.repeat(p1));
 }
 
+/*
+function encode(input) {
+  let ans = '';
+  let ct = 1;
+  let i=0;
+  while(i + 1 <= input.length){
+    if(input[i] == input[i+1]){
+      ct += 1
+    }
+    else{
+      ans += (ct + input[i])
+      ct = 1
+    }
+    i += 1;
+  }
+  return ans;
+}
+
+function decode(input) {
+  let ans = '';
+  let match = input.match(/\d+[A-Z]/g);
+  for(i in match){
+    ans += match[i].slice(-1).repeat(Number(match[i].slice(0, -1)))
+  }
+  return ans;
+}
+*/

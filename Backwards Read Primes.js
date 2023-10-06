@@ -19,3 +19,43 @@ Forth Return only the first backwards-read prime between start and end or 0 if y
 Ruby Don't use Ruby Prime class, it's disabled.
 */
 
+function backwardsPrime(start, stop){
+  let arr = [];
+  for (let x = start; x <= stop; x++) {
+    if (isPrime(x)) {
+      if (arr.includes(x)) {
+        continue;
+      }
+      let temp = parseInt(
+        x
+          .toString()
+          .split("")
+          .reverse()
+          .join("")
+      );
+      if (temp != x && isPrime(temp)) {
+        arr.push(x);
+        arr.push(temp);
+      }
+    }
+  }
+  return arr.filter(a => a >= start && a <= stop).sort((b, c) => b - c);
+}
+
+function isPrime(n) {
+  if (n == 2 || n == 3) {
+    return true;
+  }
+  if (n % 2 == 0 || n % 3 == 0 || n < 2) {
+    return false;
+  }
+  let x = 5;
+  let N = Math.sqrt(n);
+  while (x <= N) {
+    if (n % x == 0) {
+      return false;
+    }
+    x++;
+  }
+  return true;
+}

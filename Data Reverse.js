@@ -18,3 +18,17 @@ The data is given in an array as such:
 Note: In the C and NASM languages you are given the third parameter which is the number of segment blocks.
 */
 
+const dataReverse = function(data) {
+  if (data.length === 0) return [];
+  const arrayBytes = [];
+  const tam = data.length / 8;
+  for (var i = 0; i < tam; i++) {
+    arrayBytes.push(data.splice(0, 8));
+  }
+  return arrayBytes
+    .reverse()
+    .join()
+    .split(",")
+    .map(v => v * 1);
+};
+

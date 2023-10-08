@@ -25,3 +25,27 @@ function encryptor(key, message) {
     return String.fromCharCode((letter.charCodeAt() - shift + key) % 26 + shift); 
   });
 }
+
+/*
+function encryptor (key, message) {
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  
+  let encrypted = [];
+  for(i=0;i<message.length;i++){
+    let index = alphabet.indexOf(message[i].toLowerCase())
+    if(index == -1){
+      encrypted.push(message[i]) // if character is not in alphabet
+    } else{
+      let movedIndex = index + key;
+      while(movedIndex >= 26){
+        movedIndex = movedIndex - 26
+      }
+      while(movedIndex < 0){
+        movedIndex = 26 + movedIndex;
+      }
+      encrypted.push(message[i] == message[i].toUpperCase() ? alphabet[movedIndex].toUpperCase() : alphabet[movedIndex]);
+    }
+  } 
+	return encrypted.join("");
+}
+*/

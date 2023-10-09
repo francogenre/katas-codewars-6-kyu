@@ -18,3 +18,14 @@ Notes
 When in doubt, assume that the scattered bits are from the same ant. e.g. 2 heads and 1 body = 2 dead ants, not 3
 */
 
+deadAntCount = function(ants) {
+  if (!ants) return 0;
+  let bodyParts = ants.split('ant').join('');
+  
+  function count(char) {
+    return bodyParts.split(char).length - 1;
+  }
+  
+  return Math.max(count('a'), count('n'), count('t'));
+}
+

@@ -18,3 +18,12 @@ ASCII Fun #2: Funny Dots
 ASCII Fun #3: Puzzle Tiles
 ASCII Fun #4: Build a pyramid
 */
+
+function x(n){
+  let arr = Array.from({length:n},x=>Array.from({length:n},x=>'□'))
+  for (let i=0,k=n-1;i<n;i++,k--){
+    arr[i][i]='■'
+    arr[k][i]='■'
+  }
+  return arr.map(v=>v.join``).join`\n`
+}

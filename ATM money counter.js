@@ -24,3 +24,21 @@ Letter case and word order doesn't matter in the input: e.g. "EUR 1000" and "100
 Do not create your own VALUES dictionary/hash or you'll get broken tests.
 */
 
+function atm(value) {
+  let l = value.replace(/\d+/,'').toUpperCase().trim().replace(/ /g,'')
+  let val = VALUES[l]
+  let n = value.replace(/[^\d]+/,'').trim()*1
+  if (val){
+    if (n%(val[0])!==0||val[0]>n) return `Can\'t do ${n} ${l}. Value must be divisible by ${val[0]}!`
+    let arr = Array.from({length:val.length},(v,i)=>[0,0])
+    for (let i=val.length;i>=0;i--){
+      while (n>=val[i]){
+        n-=val[i]
+        arr[i][0]+=1
+        arr[i][1]=val[i]
+      }
+    }
+    return arr.reverse().filter(v=>v[0]!==0).map(v=>v.join` * `+' '+l).join`, `
+  }
+  return `Sorry, have no ${l}.`
+}

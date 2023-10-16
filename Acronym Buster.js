@@ -30,3 +30,28 @@ If all acronyms can be replaced with full words according to the above, however,
 If this is the case, ensure that sentences still start with capital letters. '!' or '?' will not be used.
 */
 
+function acronymBuster(string) {
+  const arr = [];
+  const acr = {
+    KPI: "key performance indicators",
+    EOD: "the end of the day",
+    TBD: "to be decided",
+    WAH: "work at home",
+    IAM: "in a meeting",
+    OOO: "out of office",
+    NRN: "no reply necessary",
+    CTA: "call to action",
+    SWOT: "strengths, weaknesses, opportunities and threats"
+  };
+  string = string.replace(/[A-Z]{3,}/g, v => {
+    if (acr[v]) return acr[v];
+    else {
+      arr.push(v);
+      return v;
+    }
+  });
+  if (arr.length)
+    return `${arr[0]} is an acronym. I do not like acronyms. Please remove them from your email.`;
+  return string.replace(/(\.\s+[a-z]|^[a-z])/g, v => v.toUpperCase());
+}
+

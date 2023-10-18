@@ -18,3 +18,28 @@ As an exception to the above rules, all the "teen" numbers ending with 11, 12 or
 th is used for all other numbers (e.g. 9th, pronounced ninth).
 */
 
+function numberToOrdinal(n) {
+  let suffix = "th";
+  if (n == 0) suffix = "";
+  if (n % 10 == 1 && n % 100 != 11) suffix = "st";
+  if (n % 10 == 2 && n % 100 != 12) suffix = "nd";
+  if (n % 10 == 3 && n % 100 != 13) suffix = "rd";
+  return n + suffix;
+}
+
+/*
+function numberToOrdinal(n) {
+  let suffix = ['th','st','nd','rd','th','th','th', 'th','th','th']
+  let i = n%10
+  
+  if (n == 0) { 
+    return '0'; 
+  }
+  else if (n % 100 > 10 && n % 100 < 20) { 
+    return n + 'th'; 
+  }
+  else { 
+    return n + suffix[i]; 
+  }
+}
+*/

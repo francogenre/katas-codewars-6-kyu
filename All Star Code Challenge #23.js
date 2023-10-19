@@ -48,3 +48,31 @@ Players with the same score should be sorted by the order they appear in the arr
 For simplicity, for a kill streak of 0 the kill streak calculation will yield 1 (or 20) points
 */
 
+function scoring(array){
+  let max = 0;
+  let ans = [];
+  for (let i = 0; i < array.length; ++i)
+  {
+    let sum = 0;
+    for (let j in array[i])
+    {
+      sum+=array[i].normKill*100;
+      sum+=array[i].assist*50;
+      sum+=array[i].damage*0.5;
+      sum+=array[i].healing*1;
+      sum+=Math.pow(2, array[i].streak);
+      sum+=array[i].envKill * 500;
+    }
+    ans.push([sum, array[i].name])
+  }
+  ans.sort(function(a,b){
+    if (a[0] > b [0])
+      return -1;
+    else
+      return 1;
+  })
+  let a = [];
+  for (let i = 0; i < ans.length; ++i)
+    a.push(ans[i][1])
+  return a;
+}

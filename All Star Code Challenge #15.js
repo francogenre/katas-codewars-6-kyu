@@ -21,3 +21,9 @@ function rotate(str){
   }
   return arr;
 }
+
+/*
+function rotate(s){
+  return s.split("").map(e=>s = s.slice(1)+s.slice(0,1));
+}
+*/

@@ -14,3 +14,10 @@ rotate("Hello") // => ["elloH", "lloHe", "loHel", "oHell", "Hello"]
 Note: The original string should be included in the output array. The order matters. Each element of the output array should be the rotated version of the previous element. The output array SHOULD be the same length as the input string. The function should return an empty array with a 0 length string, '', as input.
 */
 
+function rotate(str){
+  const arr = []
+  for (let i = 0; i < str.length; i++){
+    arr.push(str.slice(i + 1) + str.slice(0, i + 1))
+  }
+  return arr;
+}

@@ -76,3 +76,20 @@ function scoring(array){
     a.push(ans[i][1])
   return a;
 }
+
+/*
+function scoring(array) {
+  let score = player => 
+    player.normKill * 100
+    + player.assist * 50
+    + player.damage * 0.5
+    + player.healing
+    + Math.pow(2, player.streak)
+    + player.envKill * 500;
+  
+  return array
+    .map(player => [ player.name, score(player) ])
+    .sort((a, b) => b[1] - a[1])
+    .map(pair => pair[0]);
+}
+*/

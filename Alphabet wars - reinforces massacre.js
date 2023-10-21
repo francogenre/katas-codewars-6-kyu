@@ -61,3 +61,56 @@ Alphabet wars - nuclear strike
 Alphabet war - Wo lo loooooo priests join the war
 */
 
+function alphabetWar(r, a)
+{   
+    for (let i=0;i<a.length;i++){
+      for(let j=0;j<=r[0].length;j++){
+        if (a[i][j]==='*'){
+          r[0]=r[0].split``
+          r[0][j]='_' 
+          r[0][j-1]='_'
+          r[0][j+1]&&(r[0][j+1]='_')
+          r[0]=r[0].join`` 
+        }
+      }
+      if (r[0].includes('_')){
+          for (let z=1;z<r.length;z++){
+            for (let k=0;k<=r[z].length;k++){
+              if (r[0][k]==='_'&&r[z][k]!=='_'){
+                r[z]=r[z].split``
+                r[0]=r[0].split``
+                r[0][k]=r[z][k]
+                r[z][k]='_'
+                r[0]=r[0].join``
+                r[z]=r[z].join``
+              }
+            }
+          }
+        }
+    }
+    return r[0];
+}
+
+/*function alphabetWar(reinforces, airstrikes) {
+  let soldiers = reinforces.map(line => line.split(""));
+  let battlefield = soldiers[0];
+  
+  airstrikes.forEach(strike => {
+    battlefield = battlefield.map((soldier, i) => {
+      if (strike.slice((i || 1) - 1, i + 2).includes("*")) {
+        for(let j = 1; j < soldiers.length; j++) {
+          if (soldiers[j][i]) {
+            let soldierToReturn = soldiers[j][i];
+            soldiers[j][i] = undefined;
+            return soldierToReturn;
+          }
+        }
+        return "_";
+      }
+      return soldier;
+    });
+  });
+  
+  return battlefield.join("");
+}
+*/

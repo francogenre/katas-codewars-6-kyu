@@ -23,3 +23,16 @@ removeSmallest 9 [1,2,3,4,5] = []
 removeSmallest 2 [1,2,1,2,1] = [2,2,1]
 */
 
+function removeSmallest(n, arr) { 
+    const copy = [...arr];
+    if ( n > arr.length ) return [];
+    if ( n <= 0 ) return arr;
+
+    while (n) {
+        let min = Math.min(...copy)
+        let index = copy.findIndex(el => el === min)
+        copy.splice(index, 1)
+        n--;
+    }
+    return copy;
+}

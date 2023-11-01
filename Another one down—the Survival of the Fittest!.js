@@ -23,3 +23,21 @@ removeSmallest 9 [1,2,3,4,5] = []
 removeSmallest 2 [1,2,1,2,1] = [2,2,1]
 */
 
+function removeSmallest(n, arr) {  
+  if (n<=0) return arr;
+  if (n>=arr.length) return []
+  let i = 0;
+  arr=arr.slice();
+  let sorted = arr.slice().sort((a,b)=>a-b);
+  while (n>=1){
+    for (let j=0;j<arr.length;j++){
+      if (arr[j]===sorted[i]){
+        n--;
+        arr[j] = '*';
+        i++;
+        break;
+      }
+    }
+  }
+  return arr.filter(v=>v!=='*');
+}

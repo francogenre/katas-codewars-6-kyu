@@ -17,3 +17,11 @@ A message 'Caesar Cipher' and a key of 1 returns 'Dbftbs Djqifs'.
 A message 'Caesar Cipher' and a key of -1 returns 'Bzdrzq Bhogdq'.
 */
 
+function encryptor(key, message) {
+  key = (key % 26 + 26) % 26;
+  
+  return message.replace(/[a-z]/gi, letter => {
+    const shift = (letter >= "a") ? 97 : 65;
+    return String.fromCharCode((letter.charCodeAt() - shift + key) % 26 + shift); 
+  });
+}

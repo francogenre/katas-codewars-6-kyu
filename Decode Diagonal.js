@@ -25,3 +25,13 @@ To make things even clearer: the same example, but in a simplified view
   _ _ _ _ E
 */
 
+function getDiagonalCode(grid) {
+  let x = 0, y = 0, dx = 2, dy = 1, code = '';
+  grid = grid.split('\n');
+  while (typeof grid[y] != 'undefined' && typeof grid[y][x] != 'undefined') {
+    code += grid[y][x];
+    if (typeof grid[y + dy] == 'undefined') dy *= -1;
+    x += dx, y += dy;
+  }
+  return code;
+}

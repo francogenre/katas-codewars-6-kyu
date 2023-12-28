@@ -28,6 +28,17 @@ Java: MorseCode.get(".--")
 Kotlin: MorseCode[".--"] ?: "" or MorseCode.getOrDefault(".--", "")
 Rust: self.morse_code
 All the test strings would contain valid Morse code, so you may skip checking for errors and exceptions. In C#, tests will fail if the solution code throws an exception, please keep that in mind. This is mostly because otherwise the engine would simply ignore the tests, resulting in a "valid" solution.
+*/
+
+decodeMorse = function(morseCode) {
+  return morseCode
+    .split(" ")
+    .map((v, i) => (MORSE_CODE[v] != undefined ? MORSE_CODE[v] : 1))
+    .join("")
+    .replace(/11/g, " ")
+    .replace(/1/g, " ")
+    .trim();
+};
 
 Good luck!
 
